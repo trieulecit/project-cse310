@@ -1,4 +1,8 @@
-*,
+.bg-myRed {
+    background-color: crimson;
+}
+
+/* *,
 *::after,
 *::before {
     margin: 0;
@@ -72,13 +76,13 @@ a {
     }
 }
 
-/* Nav Active Class */
+Nav Active Class
 
 .nav__active {
     transform: translateX(0);
 }
 
-/* Toggler Icon Animation */
+Toggler Icon Animation
 
 .toggle .line1 {
     transform: rotate(-45deg) translate(-4px, 5px);
@@ -88,4 +92,4 @@ a {
 }
 .toggle .line3 {
     transform: rotate(45deg) translate(-4px, -5px);
-}
+} */

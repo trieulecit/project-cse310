@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
 
+import { getPost } from '../services/services';
 export default function Standings() {
     var number = 0;
-    console.log(number);
+    // console.log(number);
+    // const [serviceData, setServiceData] =useState([]);
+	// useEffect(() =>{
+	// 	getPost().then((res) =>{setServiceData(res)
+    //         console.log(res)
+    //     });
+       
+	// })
     return (
         <div className="standing">
             <table border="1" cellSpacing="0" cellPadding="0">
@@ -21,9 +29,12 @@ export default function Standings() {
                 <thead>
                     <TableRowHeading />
                 </thead>
-                <tbody>
-                    <TableRowData />
-                </tbody>
+                {/* <tbody>{
+                    serviceData.map(data=>(
+                         <TableRowData />
+                    ))
+                    }
+                </tbody> */}
             </table>
         </div>
     );
