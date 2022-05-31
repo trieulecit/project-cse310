@@ -1,0 +1,8 @@
+.match-result-content {
+    width: 100%;
+}
+
+.match-result-content .host, .match-result-content .guest, .match-result-content .result {
+    text-align: center;
+    margin-left: 20px;
+}

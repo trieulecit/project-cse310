@@ -10,10 +10,10 @@ import MenuRoutes from "../routes/Routes";
 
 const Header = () => {
     return (
-        <Navbar bg="myRed" variant="dark" sticky="top" expand="lg">
+        <Navbar bg="myRed" variant="dark" fixed="top" expand="lg">
             <Navbar.Brand>
                 <img src={logo} alt="logo" width="40px" height="40px" />
-                Football Made Easy
+                Football NEWS
             </Navbar.Brand>
 
             <Navbar.Toggle />
@@ -21,56 +21,55 @@ const Header = () => {
                 <Nav className="justify-content-center">
                     <Nav.Link style={{marginLeft: "10px"}} as={Link} to={"/"} >Home</Nav.Link>
                     <NavDropdown style={{marginLeft: "10px"}} title="News">
-                        <NavDropdown.Item href="/news/england">
+                        <NavDropdown.Item href="/news/epl">
                             EPL
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/spain">
+                        <NavDropdown.Item href="/news/laliga">
                             La Liga
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/italy">
+                        <NavDropdown.Item href="/news/seriea">
                             Serie A
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/germany">
+                        <NavDropdown.Item href="/news/bundesliga">
                             Bundesliga
                         </NavDropdown.Item>
                         {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="/news/france">
+                        <NavDropdown.Item href="/news/ligue1">
                             Ligue 1
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown style={{marginLeft: "10px"}} title="Schedule">
-                        <NavDropdown.Item href="/news/england">
+                        <NavDropdown.Item href="/news/epl">
                             EPL
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/spain">
+                        <NavDropdown.Item href="/news/laliga">
                             La Liga
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/italy">
+                        <NavDropdown.Item href="/news/seriea">
                             Serie A
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/germany">
+                        <NavDropdown.Item href="/news/bundesliga">
                             Bundesliga
                         </NavDropdown.Item>
                         {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="/news/france">
+                        <NavDropdown.Item href="/news/ligue1">
                             Ligue 1
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown style={{marginLeft: "10px"}} title="Standings">
-                        <NavDropdown.Item href="/news/england">
+                        <NavDropdown.Item href="/standings/epl">
                             EPL
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/spain">
+                        <NavDropdown.Item href="/news/laliga">
                             La Liga
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/italy">
+                        <NavDropdown.Item href="/news/seriea">
                             Serie A
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/news/germany">
+                        <NavDropdown.Item href="/news/bundesliga">
                             Bundesliga
                         </NavDropdown.Item>
-                        {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="/news/france">
+                        <NavDropdown.Item href="/news/ligue1">
                             Ligue 1
                         </NavDropdown.Item>
                     </NavDropdown>

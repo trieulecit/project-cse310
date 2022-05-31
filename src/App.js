@@ -6,6 +6,7 @@ import "./App.css";
 
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
+import ScrollButton from "./components/ScrollButton";
 
 
 function App() {
@@ -17,12 +18,13 @@ function App() {
                     <header className="header">
                         <Header />
                     </header>
-                    <main>
+                    <main style={{marginTop: "65px"}}>
                         <MenuRoutes />
 					</main>
                     <footer>
                         <Footer />
                     </footer>
+                    <ScrollButton />
                 </div>
             </div>
 			

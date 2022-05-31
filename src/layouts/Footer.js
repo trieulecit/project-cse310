@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="main-footer">
             <Container>
                 <Row>
-                    <Col>
+                    <Col lg={4} sm={12}>
                         <h4>Personal Details</h4>
                         <ul className="list-unstyled">
                             <li>Hoang Trieu Le</li>
@@ -17,14 +17,14 @@ export default function Footer() {
                             <li>School of Computing and Information Technology</li>
                         </ul>
                     </Col>
-                    <Col>
+                    <Col lg={4} sm={12}>
                         <h4>Project Information</h4>
                         <ul className="list-unstyled">
                             <li>CSE 310</li>
                             <li>Project A</li>
                         </ul>
                     </Col>
-                    <Col>
+                    <Col lg={4} sm={12}>
                         <h4>Contact Information</h4>
                         <ul className="list-unstyled">
                             <li>trieu.le.cit19@eiu.edu.vn</li>
@@ -35,7 +35,7 @@ export default function Footer() {
                 </Row>
                 <hr />
                 <Row>
-                    <Col sm >
+                    <Col sm={12}>
                         &copy;{new Date().getFullYear()} Sport News | All right reversed | Term of Service | Privacy
                     </Col>
                 </Row>

@@ -5,15 +5,16 @@ import Image1 from "../assets/images/mci-3-2-avl.jpg";
 import LargeNews from "../components/LargeNews";
 import SmallNews from "../components/SmallNews";
 import MediumNews from "../components/MediumNews";
+import ResultTable from "../components/ResultTable";
 
 import "../assets/Home.css";
 
-function Home() {
+function EPL() {
     return (
         <Container>
             <Row>
                 <Col sm={12} className="mt-3" style={{fontSize: "25px", fontWeight: "bold", borderLeft: "5px solid #DC143C"}}>
-                    Today's News
+                    English Premier League
                 </Col>
             </Row>
             <Row className="mt-3">
@@ -94,10 +95,13 @@ function Home() {
                         />
                     </div>
                 </Col>
-                <Col sm="4"></Col>
+                <Col sm="4">
+                    <div style={{fontSize: "20px", fontWeight: "bold", borderLeft: "5px solid black", paddingLeft: "5px"}}>The Lastest Round Result</div>
+                    <ResultTable />            
+                </Col>
             </Row>
         </Container>
     );
 }
 
-export default Home;
+export default EPL;
