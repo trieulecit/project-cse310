@@ -1,20 +1,22 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-
+import "../assets/News.css";
 export default function MediumNews(props) {
     return (
-        // <div className="small-news">
-        //     <img src={props.img} alt={props.alt} />
-        //     <span className="news-title">
-        //         Highlights: {props.hostTeam} {props.result} {props.guestTeam}
-        //     </span>
-        // </div>
-        <Card  className="small-card mb-3">
-            <Card.Img variant="top" src={props.img} />
+        <Card className="small-card mb-3 small-news">
+            <Card.Img variant="top" src={props.imageURL} />
             <Card.Body>
-                <Card.Title>Highlights: {props.hostTeam} {props.result} {props.guestTeam}</Card.Title>
+                <Card.Title>
+                    <span className="title">{props.title}</span>
+                </Card.Title>
                 <Card.Text>
-                Highlights: {props.hostTeam} {props.result} {props.guestTeam}
+                    <span className="published-date">
+                        {props.publishedDate}
+                    </span>
+                    <br />
+                    <span className="short-description">
+                        {props.shortDescription}
+                    </span>
                 </Card.Text>
             </Card.Body>
         </Card>

@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Card, CardGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import LargeNews from "../components/LargeNews";
 import SmallNews from "../components/SmallNews";
 import MediumNews from "../components/MediumNews";
-
+import ResultTable from "../components/ResultTable";
 import { getNewsPost } from "../services/NewsService";
 
 import "../assets/Home.css";
 import "../assets/News.css";
 
-function Home() {
+function SerieA() {
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
         getNewsPost().then((res) => {
             setServiceData(res);
         });
     });
+    const currentServiceData = serviceData.filter(
+        (data) => data.league === "Serie A"
+    );
     return (
         <Container>
             <Row>
@@ -30,12 +33,12 @@ function Home() {
                         borderLeft: "5px solid #DC143C",
                     }}
                 >
-                    The Latest News
+                    Serie A
                 </Col>
             </Row>
             <Row className="mt-3">
                 <Col sm={8}>
-                    {serviceData
+                    {currentServiceData
                         .sort(function (a, b) {
                             var aa = a.publishedDate
                                     .split("/")
@@ -50,21 +53,19 @@ function Home() {
                         .map((data, i) => {
                             if (i === 0) {
                                 return (
-                                    <div key={i}>
-                                        <Link to={`/newsdetail/${data.newsID}`}>
-                                            <LargeNews
-                                                imageURL={data.imageURL}
-                                                title={data.title}
-                                                publishedDate={
-                                                    data.publishedDate
-                                                }
-                                                shortDescription={
-                                                    data.shortDescription
-                                                }
-                                                content={data.content}
-                                            />
-                                        </Link>
-                                    </div>
+                                    <Link
+                                        to={`/newsdetail/${data.newsID}`}
+                                        key={i}
+                                    >
+                                        <LargeNews
+                                            imageURL={data.imageURL}
+                                            title={data.title}
+                                            publishedDate={data.publishedDate}
+                                            shortDescription={
+                                                data.shortDescription
+                                            }
+                                        />
+                                    </Link>
                                 );
                             }
                         })}
@@ -82,7 +83,7 @@ function Home() {
                     <Row>
                         <Col sm={12}>
                             <div className="vertical-news-group overflow-auto scrollbar scrollbar-primary">
-                                {serviceData
+                                {currentServiceData
                                     .sort((a, b) => {
                                         return b.view - a.view;
                                     })
@@ -112,7 +113,7 @@ function Home() {
             <Row className="ml-10">
                 <Col sm={8}>
                     <div className="horizontal-news-group">
-                        {serviceData
+                        {currentServiceData
                             .sort(function (a, b) {
                                 var aa = a.publishedDate
                                         .split("/")
@@ -147,10 +148,23 @@ function Home() {
                             })}
                     </div>
                 </Col>
-                <Col sm="4"></Col>
+                <Col sm="4">
+                    <div
+                        className="mt-3"
+                        style={{
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            borderLeft: "5px solid black",
+                            paddingLeft: "5px",
+                        }}
+                    >
+                        The Lastest Round Result
+                    </div>
+                    <ResultTable />
+                </Col>
             </Row>
         </Container>
     );
 }
 
-export default Home;
+export default SerieA;

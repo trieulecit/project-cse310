@@ -10,7 +10,6 @@ import ScrollButton from "./components/ScrollButton";
 
 
 function App() {
-    console.log(MenuRoutes);
     return (
         <Router>
             <div className="page-container">

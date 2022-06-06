@@ -1,19 +1,26 @@
 import React from "react";
-
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import "../assets/News.css";
 
 export default function LargeNews(props) {
     return (
-        <Card className="mb-4">
-            <Card.Img variant="top" src={props.img} />
+        <Card className="mb-4 large-news">
+            <Card.Img
+                variant="top"
+                src={props.imageURL}
+                style={{ maxHeight: "500px" }}
+            />
             <Card.Body>
                 <Card.Text>
-                    <span className="news-title" style={{fontSize: "24px", fontWeight: "bold",}}>
-                        {props.title}
+                    <span className="title">{props.title}</span>
+                    <br />
+                    <span className="published-date">
+                        {props.publishedDate}
                     </span>
                     <br />
-                    <span className="news-content">
-                        {props.content}
+                    <span className="short-description">
+                        {props.shortDescription}
                     </span>
                 </Card.Text>
             </Card.Body>

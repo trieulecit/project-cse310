@@ -1,0 +1,44 @@
+.small-card {
+    flex-direction: row !important;
+    width: 100%;
+}
+a:link {
+    text-decoration: none !important;
+}
+
+.small-card img {
+    max-width: 38%;
+    max-height: 140px;
+}
+
+.large-news .title, .small-news .title {
+    color: black;
+    text-decoration: none;
+}
+.large-news .title:hover, .small-news .title:hover {
+    text-decoration: underline;
+}
+
+.large-news .short-description, .large-news .published-date, .small-news .short-description, .small-news .view, .small-news .published-date {
+    color: black;
+}
+
+.large-news .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.large-news .published-date {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.small-news .published-date, .small-news .view {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.small-news .view {
+    text-decoration: underline;
+}
+
