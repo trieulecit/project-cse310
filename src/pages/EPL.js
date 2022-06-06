@@ -7,6 +7,7 @@ import SmallNews from "../components/SmallNews";
 import MediumNews from "../components/MediumNews";
 import ResultTable from "../components/ResultTable";
 import { getNewsPost } from "../services/NewsService";
+import { getResultPost } from "../services/ResultService";
 
 import "../assets/Home.css";
 import "../assets/News.css";
@@ -21,6 +22,15 @@ function EPL() {
     const currentServiceData = serviceData.filter(
         (data) => data.league === "English Premier League"
     );
+
+    const [resultServiceData, setResultServiceData] = useState([]);
+    useEffect(() => {
+        getResultPost().then((res) => {
+            setResultServiceData(res);
+        })
+    });
+    const currentResultData = resultServiceData.filter(data => data.league === "English Premier League");
+    
     return (
         <Container>
             <Row>
@@ -160,7 +170,7 @@ function EPL() {
                     >
                         The Lastest Round Result
                     </div>
-                    <ResultTable />
+                    <ResultTable data={currentResultData}/>
                 </Col>
             </Row>
         </Container>

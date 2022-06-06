@@ -7,6 +7,7 @@ import SmallNews from "../components/SmallNews";
 import MediumNews from "../components/MediumNews";
 import ResultTable from "../components/ResultTable";
 import { getNewsPost } from "../services/NewsService";
+import { getResultPost } from "../services/ResultService";
 
 import "../assets/Home.css";
 import "../assets/News.css";
@@ -21,6 +22,13 @@ function Ligue1() {
     const currentServiceData = serviceData.filter(
         (data) => data.league === "Ligue 1"
     );
+    const [resultServiceData, setResultServiceData] = useState([]);
+    useEffect(() => {
+        getResultPost().then((res) => {
+            setResultServiceData(res);
+        })
+    });
+    const currentResultData = resultServiceData.filter(data => data.league === "Ligue 1");
     return (
         <Container>
             <Row>
@@ -33,7 +41,7 @@ function Ligue1() {
                         borderLeft: "5px solid #DC143C",
                     }}
                 >
-                    Serie A
+                    Ligue 1
                 </Col>
             </Row>
             <Row className="mt-3">
@@ -160,7 +168,7 @@ function Ligue1() {
                     >
                         The Lastest Round Result
                     </div>
-                    <ResultTable />
+                    <ResultTable data={currentResultData}/>
                 </Col>
             </Row>
         </Container>
