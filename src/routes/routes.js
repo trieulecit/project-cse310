@@ -22,7 +22,7 @@ export default function MenuRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/schedule/*" element={<Schedule />}></Route>
+            <Route path="/schedule" element={<Schedule />}></Route>
             
             <Route path="/newsdetail/:newsID" element={<NewsDetail />}></Route>
             <Route path="/newsdetail" element={<NewsDetail />}></Route>
