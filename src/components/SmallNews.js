@@ -5,7 +5,7 @@ import { Card } from "react-bootstrap";
 export default function SmallNews(props) {
     return (
         <Card className="small-card mb-3 small-news">
-            <Card.Img variant="top" src={props.imageURL} />
+            <Card.Img variant="top" src={props.imageURL }/>
             <Card.Body>
                 <Card.Title>
                     <span className="title">{props.title}</span>

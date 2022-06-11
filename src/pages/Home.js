@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, CardGroup } from "react-bootstrap";
 
-import LargeNews from "../components/LargeNews";
-import SmallNews from "../components/SmallNews";
-import MediumNews from "../components/MediumNews";
+import LargeDataNews from "../components/LargeDataNews";
+import SmallVerticalNewsColumn from "../components/SmallVerticalNewsColumn";
+import BigVerticalNewsColumn from "../components/BigVerticalNewsColumn";
 
 import { getNewsPost } from "../services/NewsService";
 
@@ -35,39 +35,7 @@ function Home() {
             </Row>
             <Row className="mt-3">
                 <Col sm={8}>
-                    {serviceData
-                        .sort(function (a, b) {
-                            var aa = a.publishedDate
-                                    .split("/")
-                                    .reverse()
-                                    .join(),
-                                bb = b.publishedDate
-                                    .split("/")
-                                    .reverse()
-                                    .join();
-                            return aa > bb ? -1 : aa < bb ? 1 : 0;
-                        })
-                        .map((data, i) => {
-                            if (i === 0) {
-                                return (
-                                    <div key={i}>
-                                        <Link to={`/newsdetail/${data.newsID}`}>
-                                            <LargeNews
-                                                imageURL={data.imageURL}
-                                                title={data.title}
-                                                publishedDate={
-                                                    data.publishedDate
-                                                }
-                                                shortDescription={
-                                                    data.shortDescription
-                                                }
-                                                content={data.content}
-                                            />
-                                        </Link>
-                                    </div>
-                                );
-                            }
-                        })}
+                    <LargeDataNews data={serviceData} />
                 </Col>
                 <Col sm={4}>
                     <Row>
@@ -81,73 +49,15 @@ function Home() {
                     </Row>
                     <Row>
                         <Col sm={12}>
-                            <div className="vertical-news-group overflow-auto scrollbar scrollbar-primary">
-                                {serviceData
-                                    .sort((a, b) => {
-                                        return b.view - a.view;
-                                    })
-                                    .map((data, i) => (
-                                        <Link
-                                            to={`/newsdetail/${data.newsID}`}
-                                            key={i}
-                                        >
-                                            <SmallNews
-                                                imageURL={data.imageURL}
-                                                title={data.title}
-                                                publishedDate={
-                                                    data.publishedDate
-                                                }
-                                                shortDescription={
-                                                    data.shortDescription
-                                                }
-                                                view={data.view}
-                                            />
-                                        </Link>
-                                    ))}
-                            </div>
+                            <SmallVerticalNewsColumn data={serviceData} />
                         </Col>
                     </Row>
                 </Col>
             </Row>
             <Row className="ml-10">
                 <Col sm={8}>
-                    <div className="horizontal-news-group">
-                        {serviceData
-                            .sort(function (a, b) {
-                                var aa = a.publishedDate
-                                        .split("/")
-                                        .reverse()
-                                        .join(),
-                                    bb = b.publishedDate
-                                        .split("/")
-                                        .reverse()
-                                        .join();
-                                return aa > bb ? -1 : aa < bb ? 1 : 0;
-                            })
-                            .map((data, i) => {
-                                if (i !== 0 && i <= 4) {
-                                    return (
-                                        <Link
-                                            to={`/newsdetail/${data.newsID}`}
-                                            key={i}
-                                        >
-                                            <MediumNews
-                                                imageURL={data.imageURL}
-                                                title={data.title}
-                                                publishedDate={
-                                                    data.publishedDate
-                                                }
-                                                shortDescription={
-                                                    data.shortDescription
-                                                }
-                                            />
-                                        </Link>
-                                    );
-                                }
-                            })}
-                    </div>
+                    <BigVerticalNewsColumn data={serviceData} />
                 </Col>
-                <Col sm="4"></Col>
             </Row>
         </Container>
     );

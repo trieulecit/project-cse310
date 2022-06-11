@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Table, Container, Row, Col } from "react-bootstrap";
-import { getStandingsPost } from "../services/LaLigaStandingsService";
+import { getStandingsPost } from "../services/StandingsService";
 
 const TableRowData = (props) => {
     return (
@@ -21,16 +22,35 @@ const TableRowData = (props) => {
 
 export default function Standings(props) {
     const [serviceData, setServiceData] = useState([]);
+    const params = useParams();
+    var leagueType = "";
+    if(params.league == "epl") {
+        leagueType = "English Premier League";
+    }
+    if(params.league == "laliga") {
+        leagueType = "La Liga Santanders";
+    }
+    if(params.league == "seriea") {
+        leagueType = "Serie A";
+    }
+    if(params.league == "bundesliga") {
+        leagueType = "Bundesliga";
+    }
+    if(params.league == "ligue1") {
+        leagueType = "Ligue 1";
+    }
     useEffect(() => {
         getStandingsPost().then((res) => {
             setServiceData(res);
         });
     });
+    const currentServiceData = serviceData.filter(data => data.league === leagueType);
+    
     return (
         <Container>
             <Row>
                 <Col sm={12} style={{ fontSize: "25px", fontWeight: "bold" }}>
-                    2022 La Liga Santanders Standings
+                    2022 {leagueType} Standings
                 </Col>
             </Row>
             <Row>
@@ -51,7 +71,7 @@ export default function Standings(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {serviceData.map((data,i) => (
+                            {currentServiceData.map((data,i) => (
                                 <TableRowData
                                     key={i}
                                     rank={data.rank}

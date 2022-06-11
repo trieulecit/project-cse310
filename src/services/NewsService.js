@@ -195,3 +195,12 @@ export const getNewsPost = () => {
     });
     return myPromise;
 };
+
+export const createNews = (news) => {
+    news.newsID = newsData[newsData.length - 1].newsID + 1;
+    newsData.push(news);
+    var myPromise = new Promise((resolve, reject) => {
+        resolve(news);
+    });
+    return myPromise;
+}

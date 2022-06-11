@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 import logo from "../logo.svg";
 import "../assets/Header.css";
 import "../routes/Routes";
-import MenuRoutes from "../routes/Routes";
 
 const Header = () => {
     return (
