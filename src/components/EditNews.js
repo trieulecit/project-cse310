@@ -1,25 +1,52 @@
-import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
-import { createNews, newsData } from "../services/NewsService";
-// import RichTextEditor from "./RichTextEditor";
+import { editNews, newsData, getNewsPost, createNews } from "../services/NewsService";
 
-export default function CreateNews() {
+export default function EditNews() {
+    const params = useParams();
+    const paramsNewsID = params.newsID;
+    
+    const currentData = newsData[paramsNewsID - 1];
 
     const navigate = useNavigate();
-    const {register, handleSubmit, formState: { errors }, control} = useForm();
-    const onSubmit = (data) => createNews(data).then(
+    const {register, handleSubmit, formState: { errors }, control} = useForm({
+        defaultValues: { 
+            newsID: currentData.newsID,
+            league: currentData.league,
+            title: currentData.title,
+            imageURL: currentData.imageURL,
+            shortDescription: currentData.shortDescription,
+            content: currentData.content,
+            publishedDate: currentData.publishedDate,
+            view: currentData.view,
+        }
+    });
+    const onSubmit = (data) => editNews(data).then(
         navigate("/news-manager")
     );
 
-    var newsID = (newsData[newsData.length - 1].newsID + 1);
+
+    function getCurrentDate() {
+        var today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+    
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+    
+        today = dd + '/' + mm + '/' + yyyy;
+        return today;
+    }
+
     return (
         <Container>
             <Row>
                 <Col sm={12}>
                     <Form as="form" onSubmit={handleSubmit(onSubmit)}>
-                        <Form.Control as="input" {...register("newsID", { required: true })} type="hidden" defaultValue={newsID} readOnly />
+                        <Form.Control as="input" {...register("newsID", { required: true })} defaultValue={0} type="hidden" readOnly />
                         <Form.Group className="mt-3">
                             <Form.Label as="strong">League:</Form.Label>
                             <Form.Control as="input" {...register("league", { required: true })} placeholder="type here..."/>
@@ -43,32 +70,6 @@ export default function CreateNews() {
                         <Form.Group className="mt-3">                 
                             <Form.Label as="strong">Content:</Form.Label>
                             <Form.Control as="textarea" {...register("content", { required: true })} placeholder="type here..."/>
-                            {/* <Controller
-                                render={({
-                                    field: { onChange, onBlur, value, name, ref },
-                                    // fieldState: { invalid, isTouched, isDirty, error },
-                                }) => (
-                                    <RichTextEditor
-                                    value={value}
-                                    onChange={onChange} // send value to hook form
-                                    onBlur={onBlur} // notify when input is touched
-                                    inputRef={ref} // wire up the input ref
-                                    {...register("content")}
-                                    />
-                                )}
-                                name="RichTextEditor"
-                                control={control}
-                                rules={{ required: true }}
-                            /> */}
-
-                            {/* <Controller
-                                    render={({ field }) => <RichTextEditor as="input" {...register("content")} />}
-                                    name="content"
-                                    control={control}
-                                    defaultValue=""
-                                    
-                            /> */}
-                            {/* <RichTextEditor as="input" {...register("content", { required: true })} placeholder="type here..."/> */}
                             {errors.content && <span>This field is required</span>}        
                         </Form.Group>
                         <Form.Control as="input" {...register("publishedDate", { required: true })} type="hidden" placeholder="League" defaultValue={getCurrentDate()}/>
@@ -79,17 +80,4 @@ export default function CreateNews() {
             </Row>
         </Container>
     );
-}
-
-function getCurrentDate() {
-    var today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1; // Months start at 0!
-    let dd = today.getDate();
-
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
-
-    today = dd + '/' + mm + '/' + yyyy;
-    return today;
 }

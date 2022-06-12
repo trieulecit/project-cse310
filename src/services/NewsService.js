@@ -1,4 +1,6 @@
-var newsData = [
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+export const newsData = [
     {
         newsID: 1,
         imageURL: require('../assets/images/ars-5-1-eve.jpg'),
@@ -149,11 +151,6 @@ var newsData = [
         shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     },
-
-
-
-
-
     {
         newsID: 16,
         imageURL: require('../assets/images/psg-5-0-metz.jpg'),
@@ -197,8 +194,32 @@ export const getNewsPost = () => {
 };
 
 export const createNews = (news) => {
-    news.newsID = newsData[newsData.length - 1].newsID + 1;
+    news.newsID = +(newsData[newsData.length - 1].newsID + 1);
+
+    console.log(news);
     newsData.push(news);
+    console.log(newsData);
+    var myPromise = new Promise((resolve, reject) => {
+        resolve(news);
+    });
+    return myPromise;
+}
+
+export const deleteNews = (news) => {
+    var index = news.newsID - 1;
+    newsData.splice(index, 1);
+    var myPromise = new Promise((resolve, reject) => {
+        resolve(news);
+    });
+    return myPromise;
+}
+
+export const editNews = (news) => {
+    // console.log(news.newsID);
+    var index = news.newsID - 1;
+    newsData.splice(index, 1);
+    newsData.push(news);
+    console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
     });

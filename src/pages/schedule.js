@@ -13,8 +13,15 @@ export default function Schedule(props) {
         });
     });
 
+    var yyyy = date.getFullYear();
+    var mm = date.getMonth() + 1;
+    var dd = date.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
     var formattedDate =
-        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+        dd + "/" + mm + "/" + yyyy;
     var currentScheduleData = scheduleData.filter(
         (data) => data.date === formattedDate
     );

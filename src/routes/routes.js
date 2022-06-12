@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Home from "../pages/Home";
 
@@ -8,24 +8,33 @@ import NewsDetail from "../pages/NewsDetail";
 import Standings from "../pages/Standings";
 
 import CreateNews from "../components/CreateNews";
-import NewsManager from "../pages/NewsManager"
+import NewsManager from "../pages/NewsManager";
+import EditNews from "../components/EditNews";
 
+import News from "../pages/News";
 
-import News from "../pages/News"
+export default function MenuRoutes(props) {
+    console.log(props.user);
+    const ProtectedRoute = ({ user, children }) => {
+        console.log(user);
+        if (user) {
+            return <Navigate to={"/"} replace />;
+        }
+        // console.log(user)
+        return children;
+    };
 
-export default function MenuRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/schedule" element={<Schedule />}></Route>
-            <Route path="/standings/:league" element={<Standings />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/standings/:league" element={<Standings />} />
             <Route path="/news/:league" element={<News />}></Route>
-            <Route path="/newsdetail/:newsID" element={<NewsDetail />}></Route>
+            <Route path="/newsdetail/:newsID" element={<NewsDetail />} />
 
-            {/* <Route path="/create-news" element={<CreateNews />}></Route> */}
-            <Route path="/news-manager" element={<NewsManager />}></Route>
-
-            
+            <Route path="/news-manager" element={<ProtectedRoute user={props.user}><NewsManager /></ProtectedRoute>} />
+            <Route path="/create-news" element={<ProtectedRoute user={props.user}><CreateNews /></ProtectedRoute>} />
+            <Route path="/edit-news" element={<ProtectedRoute user={props.user}><EditNews /></ProtectedRoute>} />
         </Routes>
     );
 }
