@@ -7,7 +7,7 @@ import logo from "../logo.svg";
 import "../assets/Header.css";
 import "../routes/Routes";
 
-const Header = ({handleUser}) => {
+const Header = ({handleUser, user}) => {
     function WrapHandleUser(event) {
         return (handleUser(event));
     }
@@ -61,6 +61,15 @@ const Header = ({handleUser}) => {
                             Ligue 1
                         </NavDropdown.Item>       
                     </NavDropdown>
+                    {
+                        !user ? <Nav.Item style={{marginLeft: "10px"}}>
+                        <Nav.Link as={Link} to={"/news-manager"}>News Manager</Nav.Link>
+                    </Nav.Item>:
+                    <div></div>
+                    }
+                    {/* <Nav.Item style={{marginLeft: "10px"}}>
+                        <Nav.Link as={Link} to={"/news-manager"}>News Manager</Nav.Link>
+                    </Nav.Item>: */}
                 </Nav>
             </Navbar.Collapse>
             <WrapHandleUser></WrapHandleUser>

@@ -23,7 +23,7 @@ function App() {
     //     );
     // }
 
-    const [user, setUser] = useState(false);
+    const [user, setUser] = useState(null);
     const logIn = () => {
         setUser(true);
     };
@@ -34,10 +34,10 @@ function App() {
     function handleUser() {
         if(user) {
             return <div>
-                <Button style={{marginRight: "20px"}} onClick={logOut}>Log Out</Button> 
+                <Button style={{marginRight: "20px"}} onClick={logOut}>Log In</Button> 
             </div>                
         } else { 
-            return <Button style={{marginRight: "20px"}} onClick={logIn}>Log In</Button>
+            return <Button style={{marginRight: "20px"}} onClick={logIn}>Log Out</Button>
         }
     }
 
@@ -46,7 +46,7 @@ function App() {
             <div className="page-container">
                 <div className="content-wrap">
                     <header className="header">
-                        <Header handleUser={handleUser}/>
+                        <Header handleUser={handleUser} user={user}/>
                         
                     </header>
                     
