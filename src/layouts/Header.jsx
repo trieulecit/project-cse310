@@ -62,7 +62,7 @@ const Header = ({handleUser, user}) => {
                         </NavDropdown.Item>       
                     </NavDropdown>
                     {
-                        !user ? <Nav.Item style={{marginLeft: "10px"}}>
+                        user ? <Nav.Item style={{marginLeft: "10px"}}>
                         <Nav.Link as={Link} to={"/news-manager"}>News Manager</Nav.Link>
                     </Nav.Item>:
                     <div></div>

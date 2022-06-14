@@ -24,26 +24,27 @@ export default function NewsDetail(props) {
                 <div key={i}>
                     <Container>
                         <Row mt="3">
-                            <Col sm="12">
+                            <Col className="ml-5 mr-5" sm="12">
                                 <h1>{data.title}</h1>
                                 <h6>{data.publishedDate}</h6>
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm="12">{data.shortDescription}</Col>
+                            <Col className="ml-5 mr-5" sm="12"><span>{data.shortDescription}</span></Col>
                         </Row>
                         <Row>
-                            <Col sm="12">
+                            <Col className="ml-5 mr-5" sm="12">
                                 <img
+                                    style={{display: "block", marginLeft: "auto", marginRight: "auto"}}
                                     src={data.imageURL}
                                     alt={`newsID: ${data.newsID}'`}
-                                    height={"800px"}
-                                    width={"100%"}
+                                    height={"600px"}
+                                    width={"700px"}
                                 ></img>
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm="12">{data.content}</Col>
+                            <Col className="ml-5 mr-5" sm="12"><span>{data.content}</span></Col>
                         </Row>
                     </Container>
                 </div>

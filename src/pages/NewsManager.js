@@ -37,7 +37,7 @@ export default function NewsManager() {
                 </Col>
             </Row>
             
-            {serviceData.map((data) => (
+            {serviceData.sort((a, b) => {return a.newsID - b.newsID}).map((data) => (
                 <Row key={data.newsID}>
                     <Col sm={8}>
                         <NewsPieceShown data={data} />

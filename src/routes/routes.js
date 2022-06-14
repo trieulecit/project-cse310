@@ -17,7 +17,7 @@ export default function MenuRoutes(props) {
     console.log(props.user);
     const ProtectedRoute = ({ user, children }) => {
         console.log(user);
-        if (user) {
+        if (!user) {
             return <Navigate to={"/"} replace />;
         }
         // console.log(user)
@@ -34,7 +34,7 @@ export default function MenuRoutes(props) {
 
             <Route path="/news-manager" element={<ProtectedRoute user={props.user}><NewsManager /></ProtectedRoute>} />
             <Route path="/create-news" element={<ProtectedRoute user={props.user}><CreateNews /></ProtectedRoute>} />
-            <Route path="/edit-news" element={<ProtectedRoute user={props.user}><EditNews /></ProtectedRoute>} />
+            <Route path="/edit-news/:newsID" element={<ProtectedRoute user={props.user}><EditNews /></ProtectedRoute>} />
         </Routes>
     );
 }

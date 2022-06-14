@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 export const newsData = [
     {
         newsID: 1,
@@ -194,11 +192,14 @@ export const getNewsPost = () => {
 };
 
 export const createNews = (news) => {
-    news.newsID = +(newsData[newsData.length - 1].newsID + 1);
-
-    console.log(news);
+    console.log(newsData.length);
+    // news.newsID = +(newsData[newsData.length - 1].newsID + 1);
+    if(newsData.length != 0) {
+        news.newsID = +(newsData[newsData.length - 1].newsID + 1);
+    } else {
+        news.newsID = 1;
+    }
     newsData.push(news);
-    console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
     });
@@ -206,8 +207,13 @@ export const createNews = (news) => {
 }
 
 export const deleteNews = (news) => {
-    var index = news.newsID - 1;
-    newsData.splice(index, 1);
+    for (let i = 0; i < newsData.length; i++) {
+        if (newsData[i].newsID == news.newsID) {
+            newsData.splice(i, 1);
+        }
+    }
+    console.log("complete Deleting");
+    console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
     });
@@ -215,7 +221,6 @@ export const deleteNews = (news) => {
 }
 
 export const editNews = (news) => {
-    // console.log(news.newsID);
     var index = news.newsID - 1;
     newsData.splice(index, 1);
     newsData.push(news);
