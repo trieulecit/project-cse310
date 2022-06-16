@@ -1282,3 +1282,14 @@ export const getStandingsPost = () => {
     });
     return myPromise;
 };
+
+export const getListStandingsByLeague = (league) => {
+    var post = standingsData.filter(x => x.league == league);
+
+    var myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(post);
+        }, 1000)
+    });
+    return myPromise;
+}

@@ -351,3 +351,14 @@ export const getResultPost = () => {
     });
     return myPromise;
 };
+
+export const getListResultsByLeague = (league) => {
+    var post = data.filter(x => x.league == league);
+
+    var myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(post);
+        }, 1000)
+    });
+    return myPromise;
+}

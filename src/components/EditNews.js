@@ -2,27 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
-import { editNews, newsData, getNewsPost, createNews } from "../services/NewsService";
+import { editNews, getNewsByID } from "../services/NewsService";
+import { Editor } from 'react-bootstrap-editor';
 
 export default function EditNews() {
     const params = useParams();
-    const paramsNewsID = params.newsID;
-    
-    const currentData = newsData[paramsNewsID - 1];
+
+    const [news, setNews] = useState(null);
+    useEffect(() => {
+        getNewsByID(params.newsID).then((res) => {
+            setNews(res);
+            
+        });
+    });
 
     const navigate = useNavigate();
-    const {register, handleSubmit, formState: { errors }, control} = useForm({
-        defaultValues: { 
-            newsID: currentData.newsID,
-            league: currentData.league,
-            title: currentData.title,
-            imageURL: currentData.imageURL,
-            shortDescription: currentData.shortDescription,
-            content: currentData.content,
-            publishedDate: currentData.publishedDate,
-            view: currentData.view,
-        }
-    });
+    const {register, handleSubmit, formState: { errors }, control} = useForm();
     const onSubmit = (data) => editNews(data).then(
         navigate("/news-manager")
     );
@@ -42,42 +37,51 @@ export default function EditNews() {
     }
 
     return (
-        <Container>
-            <Row>
-                <Col sm={12}>
-                    <Form as="form" onSubmit={handleSubmit(onSubmit)}>
-                        <Form.Control as="input" {...register("newsID", { required: true })} defaultValue={0} type="hidden" readOnly />
-                        <Form.Group className="mt-3">
-                            <Form.Label as="strong">League:</Form.Label>
-                            <Form.Control as="input" {...register("league", { required: true })} placeholder="type here..."/>
-                            {errors.league && <span>This field is required</span>}
-                        </Form.Group>
-                        <Form.Group className="mt-3">
-                            <Form.Label as="strong">News Title:</Form.Label>
-                            <Form.Control as="input" {...register("title", { required: true })} placeholder="type here..." />
-                            {errors.title && <span>This field is required</span>}
-                        </Form.Group>
-                        <Form.Group className="mt-3">
-                            <Form.Label as="strong">URL of Image:</Form.Label>
-                            <Form.Control as="input" {...register("imageURL", { required: true })} placeholder="type here..." />
-                            {errors.imageURL && <span>This field is required</span>}
-                        </Form.Group>
-                        <Form.Group className="mt-3">
-                            <Form.Label as="strong">Short Description:</Form.Label>
-                            <Form.Control as="input" {...register("shortDescription", { required: true })} placeholder="type here..." />
-                            {errors.shortDescription && <span>This field is required</span>}
-                        </Form.Group>
-                        <Form.Group className="mt-3">                 
-                            <Form.Label as="strong">Content:</Form.Label>
-                            <Form.Control as="textarea" {...register("content", { required: true })} placeholder="type here..."/>
-                            {errors.content && <span>This field is required</span>}        
-                        </Form.Group>
-                        <Form.Control as="input" {...register("publishedDate", { required: true })} type="hidden" placeholder="League" defaultValue={getCurrentDate()}/>
-                        <Form.Control as="input" {...register("view", { required: true })} type="hidden" placeholder="View"  readOnly defaultValue="100"/>
-                        <Form.Control className="mt-3 mb-3" as="input" type="submit" style={{color: "white",fontSize: "23px", fontWeight: "bold",backgroundColor: "green", display: "block", marginLeft: "auto", marginRight: "auto", width: "30%"}}/>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+        (!news ? ( <div className="warning" style={{paddingLeft: "5px", fontSize: "20px"}}>Loading...</div>) :       
+            <Container>
+                <Row>
+                    <Col sm={12}>
+                        <Form as="form" onSubmit={handleSubmit(onSubmit)}>
+                            {/* <Form.Control as="input" {...register("newsID", { required: true })} defaultValue={0} type="hidden" readOnly /> */}
+                            <Form.Group className="mt-3">
+                                <Form.Label as="strong">League:</Form.Label>
+                                <Form.Control as="input" {...register("league", { required: true })} defaultValue={news.league} placeholder="type here..."/>
+                                {errors.league && <span>This field is required</span>}
+                            </Form.Group>
+                            <Form.Group className="mt-3">
+                                <Form.Label as="strong">News Title:</Form.Label>
+                                <Form.Control as="input" {...register("title", { required: true })} defaultValue={news.title} placeholder="type here..." />
+                                {errors.title && <span>This field is required</span>}
+                            </Form.Group>
+                            <Form.Group className="mt-3">
+                                <Form.Label as="strong">URL of Image:</Form.Label>
+                                <Form.Control as="input" {...register("imageURL", { required: true })} defaultValue={news.imageURL} placeholder="type here..." />
+                                {errors.imageURL && <span>This field is required</span>}
+                            </Form.Group>
+                            <Form.Group className="mt-3">
+                                <Form.Label as="strong">Short Description:</Form.Label>
+                                <Form.Control as="input" {...register("shortDescription", { required: true })} defaultValue={news.shortDescription} placeholder="type here..." />
+                                {errors.shortDescription && <span>This field is required</span>}
+                            </Form.Group>
+                            <Form.Group className="mt-3">                                        
+                                <Form.Label as="strong">Content:</Form.Label>                         
+                                <Controller
+                                    name="content"
+                                    rules={{ required: true }}
+                                    control={control}
+                                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                                        <Editor value={news.content} onChange={onChange} style={{minHeight:"300px"}} />
+                                    )}
+                                />                                                  
+                            {errors.content && <span>This field is required</span>}
+                            </Form.Group>
+                            <Form.Control as="input" {...register("publishedDate", { required: true })} defaultValue={news.publishedDate} type="hidden" placeholder="League" />
+                            <Form.Control as="input" {...register("view", { required: true })} defaultValue={news.view} type="hidden" placeholder="View"  readOnly />
+                            <Form.Control className="mt-3 mb-3" as="input" type="submit" style={{color: "white",fontSize: "23px", fontWeight: "bold",backgroundColor: "green", display: "block", marginLeft: "auto", marginRight: "auto", width: "30%"}}/>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>        
+        )
     );
 }

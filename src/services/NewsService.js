@@ -1,4 +1,5 @@
-export const newsData = [
+import React from 'react';
+const newsData = [
     {
         newsID: 1,
         imageURL: require('../assets/images/ars-5-1-eve.jpg'),
@@ -6,8 +7,11 @@ export const newsData = [
         view: 10000,
         title: "Arsenal 5-1 Everton: Emphatic victory",
         publishedDate: "21/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                    <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>
     },
     {
         newsID: 2,
@@ -16,8 +20,11 @@ export const newsData = [
         view: 12000,
         title: "Man City 3-2 Aston Villa: Dramatic Day",
         publishedDate: "23/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                    <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 3,
@@ -26,8 +33,11 @@ export const newsData = [
         view: 9000,
         title: "Brentford 1-2 Leeds: Survival Celebration",
         publishedDate: "22/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div> 
     },
     {
         newsID: 4,
@@ -36,8 +46,11 @@ export const newsData = [
         view: 9100,
         title: "Brighton 3-1 West Ham: All hopes end",
         publishedDate: "22/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>
     },
     {
         newsID: 5,
@@ -46,8 +59,11 @@ export const newsData = [
         view: 8100,
         title: "Burnley 1-2 Newcastle: Relegated from EPL",
         publishedDate: "20/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 6,
@@ -56,8 +72,11 @@ export const newsData = [
         view: 12000,
         title: "Crystal Palace 1-0 Man Utd: Securing UEL slot",
         publishedDate: "20/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 7,
@@ -66,8 +85,11 @@ export const newsData = [
         view: 15000,
         title: "Real Madrid 0-0 Betis: Winners' Respect",
         publishedDate: "22/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 8,
@@ -76,8 +98,11 @@ export const newsData = [
         view: 8000,
         title: "Sociedad 1-2 Atletico: Secure third position",
         publishedDate: "29/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 9,
@@ -86,8 +111,11 @@ export const newsData = [
         view: 10000,
         title: "Barcelona 0-2 Villareal: Bad loss at home",
         publishedDate: "24/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 10,
@@ -96,8 +124,11 @@ export const newsData = [
         view: 8000,
         title: "Fiorentina 2-0 Juventus: Season loss",
         publishedDate: "22/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 11,
@@ -106,8 +137,11 @@ export const newsData = [
         view: 9000,
         title: "Inter 3-0 Sampdoria: Win is not enough",
         publishedDate: "23/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 12,
@@ -116,8 +150,11 @@ export const newsData = [
         view: 9500,
         title: "Sassuolo 0-3 Milan: Rossoneri's Crown",
         publishedDate: "25/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 13,
@@ -126,8 +163,11 @@ export const newsData = [
         view: 9500,
         title: "Borussia Dortmund 2-1 Hertha Berlin: Last goal of Haaland for BVB",
         publishedDate: "21/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 14,
@@ -136,8 +176,11 @@ export const newsData = [
         view: 9600,
         title: "Wolfsburg 2-2 Bayern Munich: Bundesliga champions",
         publishedDate: "22/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 15,
@@ -146,8 +189,11 @@ export const newsData = [
         view: 9400,
         title: "Mönchengladbach 5-1 Hoffenheim: Jubilant victory",
         publishedDate: "23/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 16,
@@ -156,8 +202,11 @@ export const newsData = [
         view: 9700,
         title: "PSG 5-0 Metz: Mbappe's celebration",
         publishedDate: "23/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 17,
@@ -166,8 +215,11 @@ export const newsData = [
         view: 9600,
         title: "Clermont Foot 1-2 Lyon: Lyon's victory",
         publishedDate: "21/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>    
     },
     {
         newsID: 18,
@@ -176,8 +228,11 @@ export const newsData = [
         view: 9630,
         title: "Last season match: Marseille 4-0 Strasbourg",
         publishedDate: "20/05/2022",
-        shortDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        shortDescription: "Rodrigo de Paul and Angel Correa struck as Atletico Madrid secured third in LaLiga.",
+        content:<div>
+                   <div>Diego Simeone's side qualified for the Champions League before the final matchday, but were fortunate to not fall behind in the first half at Reale Arena as Rafinha spurned multiple chances.</div>
+                    <div>The hosts pulled a goal back in the 93rd minute through substitute Jon Guridi, but it proved too late to mount a comeback; defeat leaving La Real sixth, having already sealed Europa League qualification.</div>
+                </div>
     },
 ];
 
@@ -192,10 +247,8 @@ export const getNewsPost = () => {
 };
 
 export const createNews = (news) => {
-    console.log(newsData.length);
-    // news.newsID = +(newsData[newsData.length - 1].newsID + 1);
-    if(newsData.length != 0) {
-        news.newsID = +(newsData[newsData.length - 1].newsID + 1);
+    if(newsData.length !== 0) {
+        news.newsID = +(newsData[0].newsID + 1);
     } else {
         news.newsID = 1;
     }
@@ -212,7 +265,6 @@ export const deleteNews = (news) => {
             newsData.splice(i, 1);
         }
     }
-    console.log("complete Deleting");
     console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
@@ -224,9 +276,32 @@ export const editNews = (news) => {
     var index = news.newsID - 1;
     newsData.splice(index, 1);
     newsData.push(news);
-    console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
+    });
+    return myPromise;
+}
+
+
+export const getNewsByID = (id) => {
+    
+    var post = newsData.filter(x => x.newsID == id)[0];
+    
+    var myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(post);
+        }, 1000)
+    });
+    return myPromise;
+};
+
+export const getListNewsByLeague = (league) => {
+    var post = newsData.filter(x => x.league == league);
+
+    var myPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(post);
+        }, 1000)
     });
     return myPromise;
 }

@@ -14,13 +14,10 @@ import EditNews from "../components/EditNews";
 import News from "../pages/News";
 
 export default function MenuRoutes(props) {
-    console.log(props.user);
     const ProtectedRoute = ({ user, children }) => {
-        console.log(user);
         if (!user) {
             return <Navigate to={"/"} replace />;
         }
-        // console.log(user)
         return children;
     };
 

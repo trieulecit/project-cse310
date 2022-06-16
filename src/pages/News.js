@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
 import ResultTable from "../components/ResultTable";
-import { getNewsPost } from "../services/NewsService";
-import { getResultPost } from "../services/ResultService";
+import { getNewsPost, getListNewsByLeague } from "../services/NewsService";
+import { getResultPost, getListResultsByLeague } from "../services/ResultService";
 
 import LargeDataNews from "../components/LargeDataNews";
 import SmallVerticalNewsColumn from "../components/SmallVerticalNewsColumn";
@@ -15,12 +15,6 @@ import "../assets/Home.css";
 import "../assets/News.css";
 
 export default function News() {
-    const [serviceData, setServiceData] = useState([]);
-    useEffect(() => {
-        getNewsPost().then((res) => {
-            setServiceData(res);
-        });
-    });
     const params = useParams();
     var leagueType = "";
     if (params.league == "epl") {
@@ -38,22 +32,21 @@ export default function News() {
     if (params.league == "ligue1") {
         leagueType = "Ligue 1";
     }
-
-    const currentServiceData = serviceData.filter(
-        (data) => data.league === leagueType
-    );
+    const [serviceData, setServiceData] = useState([]);
+    useEffect(() => {
+        getListNewsByLeague(leagueType).then((res) => {
+            setServiceData(res);
+        });
+    });
 
     const [resultServiceData, setResultServiceData] = useState([]);
     useEffect(() => {
-        getResultPost().then((res) => {
+        getListResultsByLeague(leagueType).then((res) => {
             setResultServiceData(res);
         });
     });
-    const currentResultData = resultServiceData.filter(
-        (data) => data.league === leagueType
-    );
 
-    return (
+    return ( !serviceData.length ? ( <div className="warning" style={{paddingLeft: "5px", fontSize: "20px"}}>Loading...</div>) :
         <Container>
             <Row>
                 <Col
@@ -70,7 +63,7 @@ export default function News() {
             </Row>
             <Row className="mt-3">
                 <Col sm={8}>
-                    <LargeDataNews data={currentServiceData} />
+                    <LargeDataNews data={serviceData} />
                 </Col>
                 <Col sm={4}>
                     <Row>
@@ -84,14 +77,14 @@ export default function News() {
                     </Row>
                     <Row>
                         <Col sm={12}>                  
-                            <SmallVerticalNewsColumn data={currentServiceData} />
+                            <SmallVerticalNewsColumn data={serviceData} />
                         </Col>
                     </Row>
                 </Col>
             </Row>
             <Row className="ml-10">
                 <Col sm={8}>
-                    <BigVerticalNewsColumn data={currentServiceData} />
+                    <BigVerticalNewsColumn data={serviceData} />
                 </Col>
                 <Col sm="4">
                     <div
@@ -105,7 +98,7 @@ export default function News() {
                     >
                         The Lastest Round Result
                     </div>
-                    <ResultTable data={currentResultData} />
+                    <ResultTable data={resultServiceData} />
                 </Col>
             </Row>
         </Container>

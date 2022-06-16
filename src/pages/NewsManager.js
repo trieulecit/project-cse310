@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Table } from "react-bootstrap";
 import { getNewsPost, deleteNews } from "../services/NewsService";
 
 
@@ -29,41 +29,47 @@ export default function NewsManager() {
         navigate(`/edit-news/${data.newsID}`);
     };
 
+    function TableRow(props) {
+        return (
+            <tr>
+                <td>{props.data.newsID}</td>
+                <td>{props.data.league}</td>
+                <td>{props.data.title}</td>
+                <td className="text-center">
+                    <Button variant="warning" onClick={() => navigateToEditNews(props.data)}>Edit</Button>
+                    {" "}
+                    <Button variant="danger" onClick={() => confirmDelete(props.data)}>Delete</Button>
+                </td>
+            </tr>
+        )
+    }
+
     return (
         <Container>
             <Row>
-                <Col className="text-center mt-3 mb-3">
+                <Col sm={12} className="text-center mt-3 mb-3">
                     <Button variant="success" onClick={navigateToCreateNews}>Create News</Button>
                 </Col>
-            </Row>
-            
-            {serviceData.sort((a, b) => {return a.newsID - b.newsID}).map((data) => (
-                <Row key={data.newsID}>
-                    <Col sm={8}>
-                        <NewsPieceShown data={data} />
-                    </Col>
-                    <Col sm={4} className="text-center mt-3 mb-3">
-                        <Button variant="warning" onClick={() => navigateToEditNews(data)} className="mb-5">Edit News No.{data.newsID}</Button>
-                        <br/>
-                        <Button variant="danger" onClick={() => confirmDelete(data)}>Delete News No.{data.newsID}</Button>
-                    </Col>      
-                </Row>            
-            ))}
-                    
+            </Row>          
+            <Row>
+                <Col sm={12}>
+                    <Table striped bordered hover >
+                        <thead>
+                            <tr>
+                                <th>News ID</th>
+                                <th>League</th>
+                                <th>Title</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {serviceData.sort((a, b) => {return b.newsID - a.newsID}).map((data) => (
+                                <TableRow data={data} key={data.newsID}/>          
+                            ))}
+                        </tbody>
+                    </Table>                  
+                </Col>
+            </Row>                    
         </Container>
-    )
-}
-
-
-
-function NewsPieceShown(props) {
-    return (
-        <div className="mb-2 p-3 news-piece" style={{width: "100%", border: "3px solid red"}}>
-            <span style={{fontWeight: "bold", textDecoration: "underline"}}>News ID:</span>{" "}<span>{props.data.newsID}</span><br />
-            <span style={{fontWeight: "bold", textDecoration: "underline"}}>League:</span>{" "}<span>{props.data.league}</span><br />
-            <span style={{fontWeight: "bold", textDecoration: "underline"}}>News Title:</span>{" "}<span>{props.data.title}</span><br />
-            <span style={{fontWeight: "bold", textDecoration: "underline"}}>Short Description:</span>{" "}<span>{props.data.shortDescription}</span><br />
-            <span style={{fontWeight: "bold", textDecoration: "underline"}}>Content:</span>{" "}<span>{props.data.content}</span><br />
-        </div>
     )
 }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Container, Row, Col } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { createNews, newsData } from "../services/NewsService";
-// import RichTextEditor from "./RichTextEditor";
+import { Editor } from 'react-bootstrap-editor';
 
 export default function CreateNews() {
 
@@ -12,14 +12,12 @@ export default function CreateNews() {
     const onSubmit = (data) => createNews(data).then(
         navigate("/news-manager")
     );
-
-    var newsID = (newsData[newsData.length - 1].newsID + 1);
     return (
         <Container>
             <Row>
                 <Col sm={12}>
                     <Form as="form" onSubmit={handleSubmit(onSubmit)}>
-                        <Form.Control as="input" {...register("newsID", { required: true })} type="hidden" defaultValue={newsID} readOnly />
+                        {/* <Form.Control as="input" {...register("newsID", { required: true })} type="hidden" defaultValue={newsID} readOnly /> */}
                         <Form.Group className="mt-3">
                             <Form.Label as="strong">League:</Form.Label>
                             <Form.Control as="input" {...register("league", { required: true })} placeholder="type here..."/>
@@ -41,34 +39,15 @@ export default function CreateNews() {
                             {errors.shortDescription && <span>This field is required</span>}
                         </Form.Group>
                         <Form.Group className="mt-3">                 
-                            <Form.Label as="strong">Content:</Form.Label>
-                            <Form.Control as="textarea" {...register("content", { required: true })} placeholder="type here..."/>
-                            {/* <Controller
-                                render={({
-                                    field: { onChange, onBlur, value, name, ref },
-                                    // fieldState: { invalid, isTouched, isDirty, error },
-                                }) => (
-                                    <RichTextEditor
-                                    value={value}
-                                    onChange={onChange} // send value to hook form
-                                    onBlur={onBlur} // notify when input is touched
-                                    inputRef={ref} // wire up the input ref
-                                    {...register("content")}
-                                    />
-                                )}
-                                name="RichTextEditor"
-                                control={control}
-                                rules={{ required: true }}
-                            /> */}
-
-                            {/* <Controller
-                                    render={({ field }) => <RichTextEditor as="input" {...register("content")} />}
+                            <Form.Label as="strong">Content:</Form.Label>                         
+                                <Controller
                                     name="content"
+                                    rules={{ required: true }}
                                     control={control}
-                                    defaultValue=""
-                                    
-                            /> */}
-                            {/* <RichTextEditor as="input" {...register("content", { required: true })} placeholder="type here..."/> */}
+                                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                                        <Editor value={value} onChange={onChange} style={{minHeight:"300px"}} />
+                                    )}
+                                />                                                  
                             {errors.content && <span>This field is required</span>}        
                         </Form.Group>
                         <Form.Control as="input" {...register("publishedDate", { required: true })} type="hidden" placeholder="League" defaultValue={getCurrentDate()}/>
