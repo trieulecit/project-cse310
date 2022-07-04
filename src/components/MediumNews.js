@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "../assets/News.css";
+import "../assets/styles/News.css";
 export default function MediumNews(props) {
     return (
         <Card className="small-card mb-3 small-news">

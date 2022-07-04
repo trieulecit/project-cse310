@@ -10,7 +10,7 @@ export default function SmallVerticalNewsColumn(props) {
                     return b.view - a.view;
                 })
                 .map((data, i) => (
-                    <Link to={`/newsdetail/${data.newsID}`} key={i}>
+                    <Link to={`/news-detail/${data.newsID}`} key={i}>
                         <SmallNews
                             imageURL={data.imageURL}
                             title={data.title}

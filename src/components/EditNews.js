@@ -4,6 +4,7 @@ import { Form, Container, Row, Col } from "react-bootstrap";
 import { useForm, Controller } from "react-hook-form";
 import { editNews, getNewsByID } from "../services/NewsService";
 import { Editor } from 'react-bootstrap-editor';
+import jsxToString from 'jsx-to-string';
 
 export default function EditNews() {
     const params = useParams();
@@ -11,8 +12,7 @@ export default function EditNews() {
     const [news, setNews] = useState(null);
     useEffect(() => {
         getNewsByID(params.newsID).then((res) => {
-            setNews(res);
-            
+            setNews(res);          
         });
     });
 
@@ -22,27 +22,13 @@ export default function EditNews() {
         navigate("/news-manager")
     );
 
-
-    function getCurrentDate() {
-        var today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1; // Months start at 0!
-        let dd = today.getDate();
-    
-        if (dd < 10) dd = '0' + dd;
-        if (mm < 10) mm = '0' + mm;
-    
-        today = dd + '/' + mm + '/' + yyyy;
-        return today;
-    }
-
     return (
         (!news ? ( <div className="warning" style={{paddingLeft: "5px", fontSize: "20px"}}>Loading...</div>) :       
             <Container>
                 <Row>
                     <Col sm={12}>
                         <Form as="form" onSubmit={handleSubmit(onSubmit)}>
-                            {/* <Form.Control as="input" {...register("newsID", { required: true })} defaultValue={0} type="hidden" readOnly /> */}
+                            <Form.Control as="input" {...register("newsID", { required: true })} defaultValue={news.newsID} type="hidden" readOnly />
                             <Form.Group className="mt-3">
                                 <Form.Label as="strong">League:</Form.Label>
                                 <Form.Control as="input" {...register("league", { required: true })} defaultValue={news.league} placeholder="type here..."/>
@@ -70,7 +56,7 @@ export default function EditNews() {
                                     rules={{ required: true }}
                                     control={control}
                                     render={({ field: { onChange, onBlur, value, ref } }) => (
-                                        <Editor value={news.content} onChange={onChange} style={{minHeight:"300px"}} />
+                                        <Editor value={jsxToString(news.content)} onChange={onChange} style={{minHeight:"300px"}} />
                                     )}
                                 />                                                  
                             {errors.content && <span>This field is required</span>}

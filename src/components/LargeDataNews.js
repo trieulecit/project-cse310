@@ -12,7 +12,7 @@ export default function LargeDataNews(props) {
         .map((data, i) => {
             if (i === 0) {
                 return (
-                    <Link to={`/newsdetail/${data.newsID}`} key={i}>
+                    <Link to={`/news-detail/${data.newsID}`} key={i}>
                         <LargeNews
                             imageURL={data.imageURL}
                             title={data.title}

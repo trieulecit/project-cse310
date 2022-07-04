@@ -27,8 +27,7 @@ export default function MenuRoutes(props) {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/standings/:league" element={<Standings />} />
             <Route path="/news/:league" element={<News />}></Route>
-            <Route path="/newsdetail/:newsID" element={<NewsDetail />} />
-
+            <Route path="/news-detail/:newsID" element={<NewsDetail />} />
             <Route path="/news-manager" element={<ProtectedRoute user={props.user}><NewsManager /></ProtectedRoute>} />
             <Route path="/create-news" element={<ProtectedRoute user={props.user}><CreateNews /></ProtectedRoute>} />
             <Route path="/edit-news/:newsID" element={<ProtectedRoute user={props.user}><EditNews /></ProtectedRoute>} />

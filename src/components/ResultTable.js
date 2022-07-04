@@ -28,18 +28,6 @@ export default function ResultTable(props) {
                     />
                 ))}
             </tbody>
-            {/* <tbody>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>
-                <MatchResult host="Manchester City" guest="Aston Villa" result="3-2"/>       
-            </tbody> */}
         </Table>
     );
 }

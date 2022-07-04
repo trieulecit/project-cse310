@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import "../assets/News.css";
+import "../assets/styles/News.css";
 
 export default function LargeNews(props) {
     return (

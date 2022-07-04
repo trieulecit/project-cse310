@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 import logo from "../logo.svg";
-import "../assets/Header.css";
+import "../assets/styles/Header.css";
 import "../routes/Routes";
 
 const Header = ({handleUser, user}) => {

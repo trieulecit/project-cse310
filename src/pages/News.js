@@ -11,8 +11,8 @@ import LargeDataNews from "../components/LargeDataNews";
 import SmallVerticalNewsColumn from "../components/SmallVerticalNewsColumn";
 import BigVerticalNewsColumn from "../components/BigVerticalNewsColumn";
 
-import "../assets/Home.css";
-import "../assets/News.css";
+import "../assets/styles/Home.css";
+import "../assets/styles/News.css";
 
 export default function News() {
     const params = useParams();

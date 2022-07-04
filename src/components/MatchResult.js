@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../assets/MatchResult.css"
+import "../assets/styles/MatchResult.css"
 
 export default function MatchResult(props) {
     return (

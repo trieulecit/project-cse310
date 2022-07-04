@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/News.css";
+import "../assets/styles/News.css";
 import { Card } from "react-bootstrap";
 
 export default function SmallNews(props) {

@@ -252,6 +252,8 @@ export const createNews = (news) => {
     } else {
         news.newsID = 1;
     }
+    news.publishedDate = getCurrentDate();
+    news.view = 100;
     newsData.push(news);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
@@ -265,7 +267,6 @@ export const deleteNews = (news) => {
             newsData.splice(i, 1);
         }
     }
-    console.log(newsData);
     var myPromise = new Promise((resolve, reject) => {
         resolve(news);
     });
@@ -304,4 +305,17 @@ export const getListNewsByLeague = (league) => {
         }, 1000)
     });
     return myPromise;
+}
+
+function getCurrentDate() {
+    var today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    today = dd + '/' + mm + '/' + yyyy;
+    return today;
 }

@@ -8,8 +8,8 @@ import BigVerticalNewsColumn from "../components/BigVerticalNewsColumn";
 
 import { getNewsPost } from "../services/NewsService";
 
-import "../assets/Home.css";
-import "../assets/News.css";
+import "../assets/styles/Home.css";
+import "../assets/styles/News.css";
 
 function Home() {
     const [serviceData, setServiceData] = useState([]);

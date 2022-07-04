@@ -63,8 +63,8 @@ export default function NewsManager() {
                             </tr>
                         </thead>
                         <tbody>
-                            {serviceData.sort((a, b) => {return b.newsID - a.newsID}).map((data) => (
-                                <TableRow data={data} key={data.newsID}/>          
+                            {serviceData.sort((a, b) => {return b.newsID - a.newsID}).map((data, i) => (
+                                <TableRow data={data} key={i}/>          
                             ))}
                         </tbody>
                     </Table>                  

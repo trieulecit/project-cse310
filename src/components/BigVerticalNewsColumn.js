@@ -14,7 +14,7 @@ export default function BigVerticalNewsColumn(props) {
                 .map((data, i) => {
                     if (i !== 0 && i <= 4) {
                         return (
-                            <Link to={`/newsdetail/${data.newsID}`} key={i}>
+                            <Link to={`/news-detail/${data.newsID}`} key={i}>
                                 <MediumNews
                                     imageURL={data.imageURL}
                                     title={data.title}
